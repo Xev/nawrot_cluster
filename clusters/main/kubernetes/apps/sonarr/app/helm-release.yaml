@@ -19,8 +19,9 @@ spec:
         ingress:
             main:
                 enabled: true
-                hosts:
-                    - host: sonarr.local
+                loadBalancerIP: "10.2.10.215"
+                type: "LoadBalancer"
+#                hosts:
 #                    - host: sonarr.${DOMAIN_0}
 #                integrations:
 #                    traefik:
