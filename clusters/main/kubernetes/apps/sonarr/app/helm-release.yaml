@@ -16,11 +16,17 @@ spec:
     releaseName: sonarr
     values:
         TZ: Europe/Warsaw
-        ingress:
+        service:
             main:
-                enabled: true
+                type: LoadBalancer
                 loadBalancerIP: "10.2.10.215"
-                type: "LoadBalancer"
+                ports:
+                    main:
+                        port: 80
+                        targetPort: 8989
+#        ingress:
+#            main:
+#                enabled: true
 #                hosts:
 #                    - host: sonarr.${DOMAIN_0}
 #                integrations:
