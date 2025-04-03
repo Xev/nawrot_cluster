@@ -21,8 +21,7 @@ spec:
                 type: LoadBalancer
                 loadBalancerIP: "10.2.10.215"
                 ports:
-                    main:
-                        enabled: true
+                    test:
                         port: 8989
                         targetPort: 80
 #        ingress:
