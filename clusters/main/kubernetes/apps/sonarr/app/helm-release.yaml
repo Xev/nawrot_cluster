@@ -28,8 +28,8 @@ spec:
                           - name: local
                             namespace: traefik
                     certManager:
-                        enabled: true
-                        certificateIssuer: ${CERT_ISSUER}
+                        enabled: false
+                        certificateIssuer: domain-0-le-prod
         securityContext:
             container:
                 UMASK: "0022"
