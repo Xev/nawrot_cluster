@@ -17,11 +17,11 @@ spec:
     values:
         TZ: Europe/Warsaw
         service:
-            main:
+            test:
                 type: LoadBalancer
                 loadBalancerIP: "10.2.10.215"
                 ports:
-                    test:
+                    main:
                         port: 8989
                         targetPort: 80
 #        ingress:
