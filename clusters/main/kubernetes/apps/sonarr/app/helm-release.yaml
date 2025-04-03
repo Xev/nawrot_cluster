@@ -18,6 +18,7 @@ spec:
         TZ: Europe/Warsaw
         service:
             test:
+                enabled: true
                 type: LoadBalancer
                 loadBalancerIP: "10.2.10.215"
                 ports:
