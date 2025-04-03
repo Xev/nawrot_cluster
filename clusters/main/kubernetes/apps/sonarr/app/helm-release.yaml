@@ -1,0 +1,59 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+    name: sonarr
+    namespace: sonarr
+spec:
+    interval: 15m
+    chart:
+        spec:
+            chart: sonarr
+            version: 22.0.10
+            sourceRef:
+                kind: HelmRepository
+                name: truecharts
+                namespace: flux-system
+    releaseName: sonarr
+    values:
+        TZ: Europe/Warsaw
+        ingress:
+            main:
+                enabled: true
+                hosts:
+                    - host: sonarr.${DOMAIN_0}
+                integrations:
+                    traefik:
+                        enabled: true
+                        middlewares:
+                          - name: local
+                            namespace: traefik
+                    certManager:
+                        enabled: true
+                        certificateIssuer: ${CERT_ISSUER}
+        securityContext:
+            container:
+                UMASK: "0022"
+        credentials:
+            backblaze:
+                type: s3
+                url: ${VOLSYNC_S3_URL}
+                bucket: ${VOLSYNC_S3_BUCKET}
+                accessKey: ${VOLSYNC_S3_ACCESSKEY}
+                secretKey: ${VOLSYNC_S3_SECRETKEY}
+                encrKey: ${VOLSYNC_S3_ENCKEY}
+        persistence:
+            config:
+                volsync:
+                    - name: config
+                      type: restic
+                      credentials: backblaze
+                      dest:
+                        enabled: false
+                      src:
+                        enabled: false
+                media-vol:
+                  enabled: true
+                  type: nfs
+                  mountPath: /media
+                  path: /mnt/tank/media
+                  server: 192.168.1.21
