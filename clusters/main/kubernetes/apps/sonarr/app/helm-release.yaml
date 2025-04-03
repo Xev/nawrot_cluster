@@ -22,7 +22,7 @@ spec:
                 type: LoadBalancer
                 loadBalancerIP: "10.2.10.215"
                 ports:
-                    main:
+                    testy:
                         enabled: true
                         port: 8989
                         targetPort: 80
