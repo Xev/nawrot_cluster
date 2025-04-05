@@ -27,6 +27,13 @@ spec:
     keepHistory: false
   values:
     TZ: Europe/Warsaw
+    service:
+      main:
+        type: LoadBalancer
+        loadBalancerIP: 10.2.10.215
+        ports:
+          main:
+            port: 8989
 #    ingress:
 #      main:
 #        enabled: true
