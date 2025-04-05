@@ -16,16 +16,6 @@ spec:
     releaseName: sonarr
     values:
         TZ: Europe/Warsaw
-        service:
-            test:
-                enabled: true
-                type: LoadBalancer
-                loadBalancerIP: "10.2.10.215"
-                ports:
-                    testy:
-                        enabled: true
-                        port: 8989
-                        targetPort: 80
 #        ingress:
 #            main:
 #                enabled: true
