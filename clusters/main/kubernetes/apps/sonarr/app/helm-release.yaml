@@ -16,20 +16,20 @@ spec:
     releaseName: sonarr
     values:
         TZ: Europe/Warsaw
-#        ingress:
-#            main:
-#                enabled: true
-#                hosts:
-#                    - host: sonarr.${DOMAIN_0}
-#                integrations:
-#                    traefik:
-#                        enabled: true
-#                        middlewares:
-#                          - name: local
-#                            namespace: traefik
-#                    certManager:
-#                        enabled: true
-#                        certificateIssuer: domain-0-le-prod
+        ingress:
+            main:
+                enabled: true
+                hosts:
+                    - host: sonarr.${DOMAIN_0}
+                integrations:
+                    traefik:
+                        enabled: true
+                        middlewares:
+                          - name: local
+                            namespace: traefik
+                    certManager:
+                        enabled: true
+                        certificateIssuer: domain-0-le-prod
         securityContext:
             container:
                 UMASK: "0022"
