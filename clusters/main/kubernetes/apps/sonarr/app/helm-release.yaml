@@ -23,7 +23,7 @@ spec:
           main:
             port: 8989
     ingress:
-      test:
+      main:
         enabled: true
         hosts:
           - host: sonarr.${DOMAIN_0}
