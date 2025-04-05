@@ -27,12 +27,6 @@ spec:
     keepHistory: false
   values:
     TZ: Europe/Warsaw
-    service:
-      main:
-        type: ClusterIP
-        ports:
-          main:
-            port: 8989
     ingress:
       main:
         enabled: true
